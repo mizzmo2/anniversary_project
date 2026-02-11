@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./output.css" rel="stylesheet">
+        <title>Book Nook</title>
+    </head>
+    <body id='reading_body' class='bg-yellow-100 h-screen overflow-hidden'>
+        
+        <div id="addBookModal" class="fixed inset-0 flex items-center justify-center bg-black/40 z-50 hidden">
+            <div class='flex flex-col border-3 panel-retro bg-yellow-100 p-10 gap-4 max-w-md w-full'>
+                <form id="add_reading_list_form">
+                    <p class='retro-form-text'>Book Title:</p>
+                    <input name='title' type="text" id="title" placeholder="Title" required class='retro-form-text panel-retro px-2 py-2 w-full'>
+                    <p class='retro-form-text'>Author:</p>
+                    <input name='author' type="text" id="author" placeholder="Author" required class='retro-form-text panel-retro px-2 py-2 w-full'>
+                    <p class='retro-form-text'>Who are you? What are you doing in my house??</p>
+                    <select name="who" id="who_select" class='retro-form-text panel-retro px-2 py-2 w-full'>
+                        <option value="mimi">Mimi</option>
+                        <option value="toby">Toby</option>
+                    </select>
+                    <div class="flex justify-between py-3">
+                        <button type="submit" class='btn-retro px-2 py-2'>Add Book</button>
+                        <button id="cancel_add_reading_list" type="button" class='btn-retro px-2 py-2 gap-5'>Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <div id="addCurrentModal" class="fixed inset-0 flex items-center justify-center bg-black/40 z-50 hidden">
+            <div class='flex flex-col border-3 panel-retro bg-yellow-100 p-10 gap-4 max-w-md w-full'>
+                <form id="add_current_reading_form">
+                    <p class='retro-form-text'>Book Title:</p>
+                    <input name='title' type="text" id="current_title" placeholder="Title" required class='retro-form-text panel-retro px-2 py-2 w-full'>
+                    <p class='retro-form-text'>Author:</p>
+                    <input name='author' type="text" id="current_author" placeholder="Author" required class='retro-form-text panel-retro px-2 py-2 w-full'>
+                    <p class='retro-form-text'>Review:</p>
+                    <textarea name='review' id="current_review" placeholder="Review" required class='retro-form-text panel-retro px-2 py-2 w-full'></textarea>
+                    <p id="slider_text" class='retro-form-text pt-2 pb-0'>Rating (5):</p>
+                    <input type="range" id="rating_slider" name="rating" min="0" max="10" value="5" step="0.5" required class='retro-form-text panel-retro px-2 pb-2 w-full accent-amber-900'>
+                    <p class='retro-form-text'>Who are you?</p>
+                    <select name="who" id="current_who_select" class='retro-form-text panel-retro px-2 py-2 w-full'>
+                        <option value="mimi">Mimi</option>
+                        <option value="toby">Toby</option>
+                    </select>
+                    <div class="flex justify-between py-3">
+                        <button type="submit" class='btn-retro px-2 py-2'>Add Book</button>
+                        <button id="cancel_add_current" type="button" class='btn-retro px-2 py-2 gap-5'>Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div id='main_content' class='h-full flex flex-col'>
+            <div class='flex-shrink-0 flex flex-col gap-3'>
+                <button id='nook_to_menu' class="btn-retro absolute top-8 left-12 z-50"> ← Back </button>
+                <script>
+                    document.getElementById("nook_to_menu").addEventListener("click", function () {
+                        window.location.href = "index.html";
+                    });
+                </script>
+                <h1 class='py-10 font-momo_signature text-5xl text-amber-900 font-bold text-center'>The Book Nook</h1>
+                <div class='w-5em'></div>
+            </div>
+            
+            <div class="flex-1 min-h-0 flex w-full justify-between gap-4 pb-12 pl-12 pr-12">
+                <div id='current_reading' class='flex flex-col flex-1 min-h-0 border panel-retro p-10 gap-3'>
+                    <h2 class='flex-shrink-0 font-momo_signature text-3xl text-amber-900'>What are we reading?</h2>
+                    <div class='flex-1 min-h-0 overflow-y-auto flex flex-col gap-3'>
+                        <p id='current_reading_1' class='panel-retro p-4 flex-1'>Mimi Book Here</p>
+                        <p id='current_reading_2' class='panel-retro p-4 flex-1'>Toby Book Here</p>
+                    </div>
+                    <button id="add_current_reading" class='flex-shrink-0 btn-retro p-4'>I'm reading something new!</button>
+                </div>
+                <div id='reading_list_div' class='flex flex-col flex-1 min-h-0 border panel-retro p-10 gap-3'>
+                    <h2 class='flex-shrink-0 font-momo_signature text-3xl text-amber-900'>Reading List</h2>
+                    <ul id='reading_list' class='flex-1 min-h-0 overflow-y-auto flex flex-col gap-4 panel-retro p-4'>No List Items. Add Some with the Button!</ul>
+                    <button id="add_reading_list" class='flex-shrink-0 btn-retro p-4'>Add something to the list!</button>
+                </div>
+                <div id='reading_timeline' class='flex flex-1 min-h-0 items-stretch gap-6 panel-retro p-10'>
+                    <ul id='timeline_list' class='flex-1 min-h-0 overflow-y-auto flex flex-col gap-4 panel-retro p-4'>Timeline is empty. Get to work!!!</ul>
+                    <h2 class="flex-shrink-0 font-momo_signature text-3xl writing-vertical text-center">Book Timeline</h2>
+                </div>
+            </div>
+        </div>
+        <script type="module" src="main.js"></script>
+    </body>
+</html>

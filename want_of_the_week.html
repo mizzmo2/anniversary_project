@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <title>Want of the Week</title>
+</head>
+<body id="wotw_body" class="bg-blue-300 h-screen overflow-hidden">
+    <div id="addWantModal" class="fixed inset-0 flex items-center justify-center bg-black/40 z-50 hidden">
+        <div class='flex flex-col border-2 border-blue-800 bg-white p-10 gap-4 max-w-md w-full'>
+            <form id="add_wotw">
+                <p class='wotw-form-text'>What do you want?</p>
+                <input name='want' type="text" id="want" placeholder="I want..." required class='wotw-form-text px-2 py-2 w-full [box-shadow:inset_2px_2px_rgb(38_38_92)]'>
+                <p class='wotw-form-text'>Do you have a link?</p>
+                <input name='link' type="text" id="link" placeholder="The Link is..." class='wotw-form-text px-2 py-2 w-full [box-shadow:inset_2px_2px_rgb(38_38_92)]'>
+                <p class='wotw-form-text'>Who wants it?</p>
+                <select name="who" id="who_select" class='wotw-form-text border border-blue-950 px-2 py-2 w-full'>
+                    <option value="mimi">Mimi</option>
+                    <option value="toby">Toby</option>
+                </select>
+                <div class="flex justify-between py-3">
+                    <button type="submit" class='btn-soft px-4 py-2'>Add WOTW</button>
+                    <button id="cancel_add_want" type="button" class='btn-soft px-4 py-2 gap-5'>Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="h-full flex flex-col">
+        <section class="flex-shrink-0 flex flex-row justify-between p-10">
+            <div id='heading_div' class="flex flex-col pt-10 px-10">
+                <h1 class='font-bebas text-5xl text-white font-bold'>Want of the Week</h1>
+                <h2 class='font-bebas text-4xl text-blue-950 font-semibold tracking-wide'>What do we want this week?</h2>
+            </div>
+            <div class="p-10">
+                <button id='wotw_to_menu' class="btn-soft bg-white p-8"> ← Back </button>
+                <script>
+                    document.getElementById("wotw_to_menu").addEventListener("click", function () {
+                        window.location.href = "index.html";
+                    });
+                </script>
+            </div>
+        </section>
+        <section class="flex-1 px-10 pb-10 flex gap-6 min-h-0">
+            <div id="wants_div" class="flex-1 flex flex-col border bg-white rounded-2xl min-h-0">
+                <div class="flex-shrink-0 px-10 pt-4 font-bebas text-4xl text-blue-950 tracking-wide">
+                    Historical Wants:
+                </div>
+                <ol id="wants_list" class='flex-1 min-h-0 overflow-y-auto px-10 pt-2 font-bebas text-2xl text-blue-950 tracking-wide list-decimal'>
+                    <!-- Firebase entries go here -->
+                </ol>
+                <div class="flex-shrink-0 p-6 flex justify-center items-center border-t">
+                    <button id='add_want' class="btn-soft p-6 px-15"> I want something new! </button>
+                </div>
+            </div>
+            <div id="current_wants" class="flex-1 flex flex-col border bg-white rounded-2xl min-h-0 justify-between">
+                <div class="flex-1 min-h-0 overflow-y-auto px-10 py-4n pt-10">
+                    <h2 class='font-bebas text-4xl text-blue-950 tracking-wide mb-2'>Mimi Wants:</h2>
+                    <p class="mb-6 text-lg" id="mimi_want">
+                        <!-- Mimi's current want -->
+                    </p>
+                </div>
+                <div class="flex-1 min-h-0 overflow-y-auto px-10 py-4n pt-10">
+                    <h2 class='font-bebas text-4xl text-blue-950 tracking-wide mb-2'>Toby Wants:</h2>
+                    <p class="text-lg" id="toby_want">
+                        <!-- Toby's current want -->
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

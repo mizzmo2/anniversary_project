@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <title>Main Menu</title>
+</head>
+<body> 
+    <div id="background" class="flex flex-col w-screen h-screen justify-center items-center gap-6">
+        <div class="flex flex-row gap-1">
+            <p class="font-bold">You shall not pass!</p>
+            <p class="italic">(without an account)</p>
+        </div>
+        
+        <div class="flex md:flex-row flex-col gap-6">
+            <input class="border border-black rounded-2xl p-3 px-8 text-left" type="email" id="email" placeholder="Email" />
+            <input class="border border-black rounded-2xl p-3 px-8 text-left" type="password" id="password" placeholder="Password" />
+        </div>
+        <button class="btn-soft" onclick="login()">Login</button>
+    </div>
+
+
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyC6GnsZ_Zr1Qvz64tkY-_mCODjpnsCQSiw",
+            authDomain: "anniversary-project-8e18b.firebaseapp.com",
+            projectId: "anniversary-project-8e18b",
+            storageBucket: "anniversary-project-8e18b.firebasestorage.app",
+            messagingSenderId: "99181894238",
+            appId: "1:99181894238:web:c4ca156227f7200e8ff2cf",
+            measurementId: "G-SLD72NK3G1"
+            };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        window.login = async function() {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            try {
+            await signInWithEmailAndPassword(auth, email, password);
+            window.location.href = "index.html";
+            } catch (err) {
+                alert("Incorrect username or password.");
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+

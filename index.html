@@ -9,9 +9,9 @@
     <body> 
         <script type="module" src="main.js"></script>
 
-        <div id='surround' class="h-screen content-center bg-radial from-pink-300 from-40% to-pink-500">
-            <div id='intro_section' class='flex flex-col justify-center items-center py-5'> 
-                <h1 id='greeting_heading' class="text-4xl font-bold text-white text-center"></h1>
+        <div id='surround' class="min-h-screen content-center bg-radial from-pink-300 from-40% to-pink-500">
+            <div id='intro_section' class='flex flex-col justify-center items-center py-5 px-4'> 
+                <h1 id='greeting_heading' class="text-3xl sm:text-4xl font-bold text-white text-center"></h1>
                 <script>
                     (function(){
                         // Get the heading
@@ -33,16 +33,16 @@
                         }
                     })();
                 </script>
-                <h1 class="text-3xl font-bold text-white text-center p-5">
+                <h1 class="text-2xl sm:text-3xl font-bold text-white text-center p-5">
                     I love you very much!
                 </h1>
                 <button id="btn-scroll"
-                class='w-sm h-sm border-fuchsia-300 border-2 bg-white shadow-lg text-black rounded-2xl p-5 m-12 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-fuchsia-500 hover:text-white active:bg-fuchsia-700 focus:outline-none focus:ring-4 focus:ring-fuchsia-300'>
+                class='w-auto h-auto border-fuchsia-300 border-2 bg-white shadow-lg text-black rounded-2xl px-8 py-4 m-8 sm:m-12 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-fuchsia-500 hover:text-white active:bg-fuchsia-700 focus:outline-none focus:ring-4 focus:ring-fuchsia-300'>
                     Press Me!
                 </button>
             </div>
         </div>
-        <div id="content_section" class="h-screen flex flex-col bg-white p-12">
+        <div id="content_section" class="min-h-screen flex flex-col bg-white p-4 sm:p-8 lg:p-12">
             <script>
             (function(){
                 const btn = document.getElementById('btn-scroll');
@@ -72,9 +72,9 @@
                 });
             })();
             </script>
-            <div class='flex  justify-between bg-white p-12'>
-                <div id='date_time_div' class='w-1/2 text-left'>
-                    <h1 id='date_time' class='text-3xl font-bold text-black p-5'></h1>
+            <div class='flex flex-col lg:flex-row justify-between bg-white p-4 sm:p-8 lg:p-12 gap-6 lg:gap-0'>
+                <div id='date_time_div' class='w-full lg:w-1/2 text-center lg:text-left'>
+                    <h1 id='date_time' class='text-xl sm:text-2xl lg:text-3xl font-bold text-black p-3 sm:p-5'></h1>
                     <script>
                         const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
                         const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -94,9 +94,9 @@
                         document.getElementById('date_time').textContent = current_date;
                     </script>
                 </div>
-                <div id='quote_div' class='w-1/2 text-right'>
-                    <h1 id='quote' class='text-3xl font-bold text-black p-5'></h1>
-                    <h3 id='quote_author'></h3>
+                <div id='quote_div' class='w-full lg:w-1/2 text-center lg:text-right'>
+                    <h1 id='quote' class='text-lg sm:text-xl lg:text-2xl font-bold text-black p-3 sm:p-5'></h1>
+                    <h3 id='quote_author' class='text-sm sm:text-base italic text-gray-600'></h3>
                     <script>
                         (async function(){
                             const quoteEl = document.getElementById('quote');
@@ -167,10 +167,10 @@
                     </script>
                 </div>
             </div>
-             <div id='activity_div' class='border-red-700 border-0 flex-1 flex gap-5 p-10'>
-                <div id='book_nook' class='flex flex-col justify-center items-center bg-pink-200 shadow-lg/30 shadow-pink-700 rounded-md flex-1 p-5 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-103'>
-                        <p class='font-bold text-center'>Book Nook - Book Recommendations and Reading List.</p>
-                        <img src="image/book_shelf.png" alt="Bookshelf Image">
+             <div id='activity_div' class='border-red-700 border-0 flex-1 flex flex-col md:flex-row flex-wrap gap-4 sm:gap-5 p-4 sm:p-6 lg:p-10'>
+                <div id='book_nook' class='flex flex-col justify-center items-center bg-pink-200 shadow-lg/30 shadow-pink-700 rounded-md flex-1 min-w-[250px] p-4 sm:p-5 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-103 cursor-pointer'>
+                        <p class='font-bold text-center text-sm sm:text-base mb-3'>Book Nook - Book Recommendations and Reading List.</p>
+                        <img src="image/book_shelf.png" alt="Bookshelf Image" class="max-w-full h-auto">
                         <script>
                             document.getElementById("book_nook").addEventListener("click", function () {
                                 window.location.href = "book_nook.html";
@@ -181,27 +181,27 @@
                         <p class='font-bold text-center'>Record Studio - Song Recommendations.</p>
                         <img src="image/record_player.png" alt="Record Player Image">
                 </div> -->
-                <div id='want_of_the_week' class='flex flex-col justify-center items-center bg-pink-200 shadow-lg/30 shadow-pink-700 rounded-md flex-1 p-5 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-103'>
-                        <p class='font-bold text-center'>Want of the Week - What do we want this week?</p>
-                        <img src="image/gift.png" alt="Gift Image">
+                <div id='want_of_the_week' class='flex flex-col justify-center items-center bg-pink-200 shadow-lg/30 shadow-pink-700 rounded-md flex-1 min-w-[250px] p-4 sm:p-5 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-103 cursor-pointer'>
+                        <p class='font-bold text-center text-sm sm:text-base mb-3'>Want of the Week - What do we want this week?</p>
+                        <img src="image/gift.png" alt="Gift Image" class="max-w-full h-auto">
                         <script>
                             document.getElementById("want_of_the_week").addEventListener("click", function () {
                                 window.location.href = "want_of_the_week.html";
                             });
                         </script>
                 </div>
-                <div id='chip_rankings' class='flex flex-col justify-center items-center bg-pink-200 shadow-lg/30 shadow-pink-700 rounded-md flex-1 p-5 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-103'>
-                        <p class='font-bold text-center'>Chip Rankings - UKs Definitive Chip Rankings.</p>
-                        <img src="image/chips.png" alt="Chips Image">
+                <div id='chip_rankings' class='flex flex-col justify-center items-center bg-pink-200 shadow-lg/30 shadow-pink-700 rounded-md flex-1 min-w-[250px] p-4 sm:p-5 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-103 cursor-pointer'>
+                        <p class='font-bold text-center text-sm sm:text-base mb-3'>Chip Rankings - UKs Definitive Chip Rankings.</p>
+                        <img src="image/chips.png" alt="Chips Image" class="max-w-full h-auto">
                         <script>
                             document.getElementById("chip_rankings").addEventListener("click", function () {
                                 window.location.href = "chip_rankings.html";
                             });
                         </script>
                 </div>
-                <div id='document_repository' class='flex flex-col justify-center items-center bg-pink-200 shadow-lg/30 shadow-pink-700 rounded-md flex-1 p-5 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-103'>
-                        <p class='font-bold text-center'>Document Repository - Toby's Important Document Hoard.</p>
-                        <img src="image/folder.png" alt="Folder Image">
+                <div id='document_repository' class='flex flex-col justify-center items-center bg-pink-200 shadow-lg/30 shadow-pink-700 rounded-md flex-1 min-w-[250px] p-4 sm:p-5 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-103 cursor-pointer'>
+                        <p class='font-bold text-center text-sm sm:text-base mb-3'>Document Repository - Toby's Important Document Hoard.</p>
+                        <img src="image/folder.png" alt="Folder Image" class="max-w-full h-auto">
                         <script>
                             document.getElementById("document_repository").addEventListener("click", function () {
                                 window.location.href = "doc_hoard.html";
@@ -214,3 +214,4 @@
         
     </body>
 </html>
+
